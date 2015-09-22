@@ -1,0 +1,10 @@
+<ion-list>
+  {{#each model as |item|}}
+  <ion-item complex icon-right as |section|>
+    {{#if section.link}}
+      <h2>{{item.name}}</h2>
+      <i class="icon ion-chevron-right icon-accessory"></i>
+    {{/if}}
+  </ion-item>
+  {{/each}}
+</ion-list>
