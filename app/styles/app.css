@@ -13,3 +13,7 @@
   background: #5F9CC5;
   background-image: linear-gradient( #5f9cc5,#396B9E );
 }
+
+.list a {
+  text-decoration: none;
+}

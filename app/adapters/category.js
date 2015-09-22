@@ -12,7 +12,10 @@ export default DS.Adapter.extend({
 
   query(store, type, query = {}) {
     return new Ember.RSVP.Promise( (resolve, reject) => {
-      const url = this.corsUrl('/categories.asp');
+      const parentCategory = query.category;
+      let path = '/categories.asp';
+      path = parentCategory ? `${path}?idparentcat=${parentCategory}` : path;
+      const url = this.corsUrl(path);
       const options = {
         url,
         success: function(payload, textStatus, jqXHR) {
