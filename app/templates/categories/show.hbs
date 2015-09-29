@@ -3,7 +3,7 @@
     {{model.name}}
   </div>
   {{#each model.categories as |category|}}
-    {{#link-to "categories.show" category.slug}}
+    {{#link-to category.nextRoute category.slug}}
       <ion-item complex icon-right as |section|>
         {{#if section.link}}
           <h2>{{category.name}}</h2>
