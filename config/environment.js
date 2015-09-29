@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'hobbyking',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'history',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -21,6 +21,13 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy: {
+      'default-src': "'unsafe-inline'",
+      'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
+      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
+      'connect-src': "'self' blob:",
+      'img-src': "'self' data: http://cdn.hobbyking.com",
+      'font-src': "'self' http://fonts.gstatic.com",
+      'media-src': "'self'"
     }
   };
 
@@ -31,7 +38,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.APP.CORS_PROXY = 'https://cors-anywhere.herokuapp.com';
-    ENV.contentSecurityPolicy['connect-src'] = "'self' https://cors-anywhere.herokuapp.com";
+    ENV.contentSecurityPolicy['connect-src'] += " https://cors-anywhere.herokuapp.com";
   }
 
   if (environment === 'test') {

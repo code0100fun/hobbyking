@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('categories');
   this.route('categories', { path: '/categories/*slugs' });
   this.route('products', { path: '/products/:category' });
+  this.route('category');
 });
 
 export default Router;

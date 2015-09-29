@@ -38,6 +38,7 @@
     "ember-data": "1.13.8",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3",
-    "ember-ionic": "code0100fun/ember-ionic#glimmer-component"
+    "ember-ionic": "code0100fun/ember-ionic#glimmer-component",
+    "ember-localforage-adapter": "2.0.0"
   }
 }

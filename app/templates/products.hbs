@@ -1,1 +1,28 @@
-Products
+<ion-list>
+  {{#each model as |product|}}
+    {{#link-to "products" product.id}}
+      <div class="list card">
+
+        <div class="item">
+          <h3>{{product.name}}</h3>
+        </div>
+
+        <div class="item item-body">
+          <img class="full-image" src="{{product.image}}">
+          <p>
+            <a href="#" class="subdued">{{product.price}}</a>
+            <a href="#" class="subdued">{{product.comments}} Comments</a>
+          </p>
+        </div>
+
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <a class="tab-item" href="#">
+            <i class="icon ion-chatbox"></i>
+            Comment
+          </a>
+        </div>
+
+      </div>
+    {{/link-to}}
+  {{/each}}
+</ion-list>

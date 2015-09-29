@@ -40,8 +40,9 @@ export default Ember.Route.extend({
     });
     return promise.then((categories) => {
       if (!categories.get('length')) {
-        // transition.abort();
-        this.redirectTo('products', { category: id });
+        return this.store.query('product', { category: id }).then((products) => {
+          this.transitionTo('category', this.store.peekRecord('category', id));
+        });
       }
       return categories;
     });
