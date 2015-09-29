@@ -31,7 +31,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.APP.CORS_PROXY = 'https://cors-anywhere.herokuapp.com';
-    ENV.contentSecurityPolicy['connect-src'] = "'self' https://cors-anywhere.herokuapp.com";
+    ENV.contentSecurityPolicy['connect-src'] = "'self' localhost:*";
+    ENV.contentSecurityPolicy['style-src'] = "'self' 'unsafe-inline'";
   }
 
   if (environment === 'test') {

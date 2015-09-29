@@ -1,8 +1,5 @@
-import ProxyBase from './proxy-base';
+import DS from 'ember-data';
 
-export default ProxyBase.extend({
-  buildUrl(query) {
-    debugger;
-    return `/products.asp?idparentcat=${query.category}`;
-  }
+export default DS.RESTAdapter.extend({
+  namespace: 'api'
 });
