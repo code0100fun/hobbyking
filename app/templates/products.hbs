@@ -1,1 +1,11 @@
-Products
+{{#each model as |product|}}
+  {{product.name}}
+{{/each}}
+{{#ember-collection
+  items=model
+  height=300
+  width=300
+  cell-layout=(fixed-grid-layout 50 50) as |item index|
+}}
+  {{item.name}}
+{{/ember-collection}}

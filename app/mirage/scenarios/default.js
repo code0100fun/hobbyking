@@ -20,6 +20,13 @@ export default function(server) {
     'Speed Controller (ESC)': ['Turnigy MultiStar', 'ZTW']
   };
 
+  const products = {
+    'Coming Soon': [{ name: 'Test' }],
+    'Flight Controllers': [{ name: 'CC3D Atom', price: '$25.00' }],
+    'Turnigy MultiStar': [{ name: 'Turnigy 12A ESC', price: '$36.00' }],
+    'ZTW': [{ name: 'ZTW 30A ESC' }]
+  };
+
   for (let parentName of Object.keys(categories)) {
     const subNames = categories[parentName];
     const subcategories = subNames.map((name) => {
@@ -39,5 +46,14 @@ export default function(server) {
     subcategories.forEach((category) => {
       server.db.categories.update(category.id, { category: parent.id });
     });
+  }
+
+  for (let categoryName of Object.keys(products)) {
+    const catProductNames = products[categoryName];
+    const category = server.db.categories.where({ slug: slug(categoryName) })[0];
+    const catProducts = catProductNames.map((product) => {
+      return server.create('product', { name: product.name, category: category.id });
+    });
+    server.db.categories.update(category.id, { products: catProducts.mapBy('id') });
   }
 }

@@ -18,4 +18,16 @@ export default function() {
       };
     }
   });
+
+  this.get('/products', function(db, request) {
+    if (request.queryParams.category) {
+      const category = db.categories.where({ slug: request.queryParams.category })[0];
+      const products = db.products.filter((product) => {
+        return product.category === category.id;
+      });
+      return {
+        products: products
+      };
+    }
+  });
 }
